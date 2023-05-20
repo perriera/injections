@@ -23,15 +23,15 @@
  *
  */
 
-#include <extras_cpp/game/clazz.hpp>
+#include <reassure/game/clazz.hpp>
 #include <extras/interfaces.hpp>
 #include <iostream>
 
 using namespace std;
-using namespace extras;
+using namespace reassure;
 
-namespace extras {
-  namespace cpp {
+namespace reassure {
+  namespace reassign {
     namespace game {
 
       void ChessGame::moves() const {}

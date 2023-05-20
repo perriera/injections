@@ -24,14 +24,14 @@
  */
 
 #include <iostream>
-#include <extras_cpp/game/clazz.hpp>
+#include <reassure/game/clazz.hpp>
 
 #include "../../vendor/catch.hpp"
 
 using namespace std;
-using namespace extras::cpp;
+using namespace reassure::reassign;
 
-SCENARIO("Dock cpp::game::Interface methods", "[cpp::game::Interface]")
+SCENARIO("Dock reassign::game::Interface methods", "[reassign::game::Interface]")
 {
     /**
      *    construct an object

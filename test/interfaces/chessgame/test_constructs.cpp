@@ -24,15 +24,15 @@
  */
 
 #include <iostream>
-#include <extras_cpp/game/clazz.hpp>
+#include <reassure/game/clazz.hpp>
 
 #include "../../vendor/catch.hpp"
 
 using namespace std;
-using namespace extras;
-using namespace extras::cpp;
+using namespace reassure;
+using namespace reassure::reassign;
 
-SCENARIO("Dock cpp::game::Interface constructs", "[cpp::game::Interface]")
+SCENARIO("Dock reassign::game::Interface constructs", "[reassign::game::Interface]")
 {
     /**
      *
@@ -40,9 +40,9 @@ SCENARIO("Dock cpp::game::Interface constructs", "[cpp::game::Interface]")
      *    with various parameters
      *
      */
-    cpp::game::ChessGame game(1, 2);
+    reassign::game::ChessGame game(1, 2);
 
     REQUIRE_THROWS_AS(
-        cpp::game::ChessGame(0, 0), game::EndOfGameReachedException);
+        reassign::game::ChessGame(0, 0), game::EndOfGameReachedException);
 
 }

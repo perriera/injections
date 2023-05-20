@@ -1,9 +1,9 @@
 
 
 
-# [(perriera) / extras_cpp](https://github.com/perriera/extras_cpp)
+# [(perriera) / reassure](https://github.com/perriera/reassure)
 
-Welcome to the **(perriera) / extras_cpp** project.
+Welcome to the **(perriera) / reassure** project.
 
 <div align="center">
   <img width="442" height="320" src="assets/extras.png">
@@ -16,22 +16,22 @@ Welcome to the **(perriera) / extras_cpp** project.
 
 ## Setup instructions
 Assuming you have a Linux box setup you can create a project as follows:
-> 1. [Generate your project using this template](https://github.com/perriera/extras_cpp/generate)<br/>
+> 1. [Generate your project using this template](https://github.com/perriera/reassure/generate)<br/>
 > **NOTE**: 
-> When you create your project the 'extras_cpp' specified <br/>below will be replaced with your project name.<br/>
+> When you create your project the 'reassure' specified <br/>below will be replaced with your project name.<br/>
 > 2. Clone the project to local directory using either the https or ssh url<br/>
-> `git clone git@github.com:perriera/extras_cpp.git`
+> `git clone git@github.com:perriera/reassure.git`
 > 3. cd into the project and run the start up script<br/>
-> `cd extras_cpp`<br/>
+> `cd reassure`<br/>
 > `./RUNMEFIRST.sh`<br/>
 > **OPTIONAL** <br/>
 > When you specify a name for your project you may specify a sub name which will be converted into a namespace, (aka ***my_project*** instead of ***myproject*** ). In the case of sub name is **not** specified you will see a namespace called 'reassign' after the RUNMEFIRST.sh script is completed.
 
 In the case where you don't have a Linux box already setup:
-> 1. [How to setup a development environment (on Linux, Windows or Mac)](https://github.com/perriera/extras_cpp/blob/dev/docs/ENVIRONMENT.md)
-> 2. [How to install the tools necessary for C++11/17 projects](https://github.com/perriera/extras_cpp/blob/dev/docs/INSTALL.md)
- >3. [How to clone your project (with this template)](https://github.com/perriera/extras_cpp/blob/dev/docs/CLONE.md)
-> 4. [How to setup your changelog.md](https://github.com/perriera/extras_cpp/blob/dev/docs/CHANGELOG.md)
+> 1. [How to setup a development environment (on Linux, Windows or Mac)](https://github.com/perriera/reassure/blob/dev/docs/ENVIRONMENT.md)
+> 2. [How to install the tools necessary for C++11/17 projects](https://github.com/perriera/reassure/blob/dev/docs/INSTALL.md)
+ >3. [How to clone your project (with this template)](https://github.com/perriera/reassure/blob/dev/docs/CLONE.md)
+> 4. [How to setup your changelog.md](https://github.com/perriera/reassure/blob/dev/docs/CHANGELOG.md)
 
 ### Credits
 > Markup Language created/edited with [SlackEdit.io](https://stackedit.io/app#)<br/>
@@ -39,5 +39,5 @@ In the case where you don't have a Linux box already setup:
 
 ### Copyright
 > © 2023 Perry Anderson, (perry@exparx.ca) ([exparx.ca](https://www.exparx.ca/))<br/>
-> [Open Source / MIT License](https://opensource.org/licenses/MIT) (see [LICENSE.md](https://github.com/perriera/extras_cpp/blob/dev/LICENSE.md))<br/>
+> [Open Source / MIT License](https://opensource.org/licenses/MIT) (see [LICENSE.md](https://github.com/perriera/reassure/blob/dev/LICENSE.md))<br/>
 

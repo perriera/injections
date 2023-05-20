@@ -23,12 +23,12 @@
  *
  */
 
-#include <extras_cpp/game/clazz.hpp>
+#include <reassure/game/clazz.hpp>
 #include <extras/interfaces.hpp>
 #include <iostream>
 
 using namespace std;
-using namespace extras::cpp;
+using namespace reassure::reassign;
 
 game::ChessGame::ChessGame(int x, int y)
   : _x(x), _y(y)

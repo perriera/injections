@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef _EXTRAS_CPP_CHESSGAME_INTERFACE_HPP
-#define _EXTRAS_CPP_CHESSGAME_INTERFACE_HPP
+#ifndef _REASSURE_CHESSGAME_INTERFACE_HPP
+#define _REASSURE_CHESSGAME_INTERFACE_HPP
 
  /**
   * @brief The MIT License (MIT)
@@ -40,8 +40,8 @@
 #include <iostream>
 #include <extras/interfaces.hpp>
 
-namespace extras {
-    namespace cpp {
+namespace reassure {
+    namespace reassign {
         namespace game {
 
             /**
@@ -98,4 +98,4 @@ namespace extras {
     } // end namespace 
 }
 
-#endif // _EXTRAS_CPP_CHESSGAME_INTERFACE_HPP
+#endif // _REASSURE_CHESSGAME_INTERFACE_HPP

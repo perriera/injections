@@ -24,18 +24,18 @@
  */
 
 #include <iostream>
-#include <extras_cpp/game/interface.hpp>
+#include <reassure/game/interface.hpp>
 #include <extras/docking/DockIt.hpp>
 
 #include "../../vendor/catch.hpp"
 #include "../../vendor/fakeit.hpp"
 
-using namespace extras;
-using namespace extras::cpp;
+using namespace reassure;
+using namespace reassure::reassign;
 using namespace fakeit;
 
 /**
- *    Mold<cpp::cpp::game::Interface> dock;
+ *    Mold<cpp::reassign::game::Interface> dock;
  *
  *    (aka. mold the cpp::ChessGame interface to this dock)
  *
@@ -48,7 +48,7 @@ using namespace fakeit;
  *    the (perrier) extras framework
  *
  */
-SCENARIO("Mold cpp::game::Interface", "[cpp::game::Interface]") {
+SCENARIO("Mold reassign::game::Interface", "[reassign::game::Interface]") {
 
     /**
      *    Steps 1. Mold the Interface to a dock
@@ -57,7 +57,7 @@ SCENARIO("Mold cpp::game::Interface", "[cpp::game::Interface]") {
      *
      */
 
-    Mold<cpp::game::Interface> dock;
+    Mold<reassign::game::Interface> dock;
     When(Method(dock, moves)).Return();
     When(Method(dock, exists)).AlwaysDo([]() { return true; });
     When(Method(dock, piece)).AlwaysDo([](int, int) { return true; });
@@ -65,7 +65,7 @@ SCENARIO("Mold cpp::game::Interface", "[cpp::game::Interface]") {
     When(Method(dock, zone)).AlwaysDo([&_x, &_y](int row, int col) {
         return row == _x && col == _y;
         });
-    cpp::game::Interface& i = dock.get();
+    reassign::game::Interface& i = dock.get();
 
     /**
      *    Steps 4. in this step carry out at least one typical

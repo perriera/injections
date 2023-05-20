@@ -24,15 +24,15 @@
  */
 
 #include <iostream>
-#include <extras_cpp/game/interface.hpp>
+#include <reassure/game/interface.hpp>
 
 #include "../../vendor/catch.hpp"
 
 using namespace std;
-using namespace extras;
-using namespace extras::cpp;
+using namespace reassure;
+using namespace reassure::reassign;
 
-SCENARIO("Dock cpp::game::Interface assertions", "[cpp::game::Interface]") {
+SCENARIO("Dock reassign::game::Interface assertions", "[reassign::game::Interface]") {
 
     /**
      *    test all the assertions

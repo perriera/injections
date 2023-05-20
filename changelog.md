@@ -5,7 +5,7 @@
 > and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).</br>
 > To add a tag to the git repository do:
 >
-> > git tag -a v0.1.0 -m "extras_cpp created using extras 8.6.5"</br>
+> > git tag -a v0.1.0 -m "reassure created using extras 8.6.5"</br>
 > > git push origin v0.1.0
 
 IMPORTANT:
@@ -34,7 +34,7 @@ Updated README.md accordingly</br>
 
 #### 0.2.0 (2023-MM-DD)
 ### Changed
-- extras_cpp created from template
+- reassure created from template
 
 #### 0.1.0 (2021-09-03)
 ### Added
@@ -58,7 +58,7 @@ Updated README.md accordingly</br>
 - spdlog is now used as a shared library, (libspdlog.so)
 - cpr is now used as a shared library, (libcpr.so)
 - placed all source into /src
-- placed all headers into /include/extras_cpp
+- placed all headers into /include/reassure
 
 #### 0.1.0 (2021-08-26)
 
@@ -96,6 +96,6 @@ Updated README.md accordingly</br>
 
 ### Note
 > The following will only show on PUBLIC repositories:
-[unreleased]: https://github.com/perriera/extras_cpp/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/perriera/extras_cpp/compare/v0.0.0...v0.1.0
-[0.0.0]: https://github.com/perriera/extras_cpp/tree/v0.0.0
+[unreleased]: https://github.com/perriera/reassure/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/perriera/reassure/compare/v0.0.0...v0.1.0
+[0.0.0]: https://github.com/perriera/reassure/tree/v0.0.0
