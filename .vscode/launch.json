@@ -80,12 +80,13 @@
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
-            "name": "reensure_app",
+            "name": "retag_i386",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/reensure_app",
+            "program": "${workspaceFolder}/build/retag_i386",
             "args": [
-                "data/pgn/kasparov_muratkuliev_1973.PGN"
+                "build/testarea/libsisutil.so",
+                "8.9.10"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

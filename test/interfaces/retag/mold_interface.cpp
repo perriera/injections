@@ -41,6 +41,8 @@ using namespace reensure::retag;
 using namespace extras;
 using namespace fakeit;
 
+#define ignore(a,b,c) a##Exception::assertion(b, c)
+
 /**
  * @brief dock retag::Interface
  *
@@ -87,15 +89,19 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
             ParameterList _list;
             for (int j = 0; j < argc; j++)
                _list.push_back(argv[j]);
-            IncorrectParametersException::assertion(_list, __INFO__);
+            ignore(IncorrectParameters, _list, __INFO__);
             _sharedlibraryname = _list[0];
             _major_minor_patch = _list[1];
-            file::NotFoundException::assertion(_sharedlibraryname, __INFO__);
+            ignore(file::NotFound, _sharedlibraryname, __INFO__);
             auto parts = extras::str::split(_major_minor_patch, ".");
-            IncorrectNumbersException::assertion(parts, __INFO__);
+            ignore(IncorrectNumbers, parts, __INFO__);
+            _major_no = parts[0];
+            _minor_no = parts[1];
+            _patch_no = parts[2];
          });
    When(Method(mold, execute))
-      .AlwaysDo([&i, &_sharedlibraryname, &_major_minor_patch]() {
+      .AlwaysDo([&i, &_sharedlibraryname, &_major_minor_patch](int argc, const char* argv[]) {
+      i.parameters(argc, argv);
       extras::file::File file(_sharedlibraryname);
       Pathname original = file.filename();
       Pathname symlink1 = original + "." + i.major_no();
@@ -151,15 +157,15 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
     *
     */
 
-    // test(i);
+   test(i);
 
-    /**
-     * @brief verify the desired methods were tested
-     *
-     */
-     // Verify(Method(mold, parameters));
-     // Verify(Method(mold, execute));
-     // Verify(Method(mold, major_no));
-     // Verify(Method(mold, minor_no));
-     // Verify(Method(mold, patch_no));
+   /**
+    * @brief verify the desired methods were tested
+    *
+    */
+   Verify(Method(mold, parameters));
+   Verify(Method(mold, execute));
+   Verify(Method(mold, major_no));
+   Verify(Method(mold, minor_no));
+   Verify(Method(mold, patch_no));
 }

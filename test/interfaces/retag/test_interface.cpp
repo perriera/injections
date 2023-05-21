@@ -48,7 +48,7 @@ using namespace fakeit;
 namespace reensure {
    namespace retag {
 
-      void test(Interface&)
+      void test(Interface& i)
       {
 
          /**
@@ -56,22 +56,22 @@ namespace reensure {
           *
           */
 
-          // const char* argv[] = { "build/testarea/libsisutil.so", "9.24.0" };
-          // int argc = 2;
+         const char* argv[] = { "build/testarea/libsisutil.so", "9.24.0" };
+         int argc = 2;
 
-          /**
-           * @brief determine fullpath
-           *
-           */
-         auto major_no = EXTRAS_VER_MAJOR;
-         auto minor_no = EXTRAS_VER_MINOR;
-         auto patch_no = EXTRAS_VER_PATCH;
+         /**
+          * @brief determine fullpath
+          *
+          */
+         auto major_no = "9";
+         auto minor_no = "24";
+         auto patch_no = "0";
          Filename testarea = "build/testarea/";
          Filename filename = "libsisutil.so";
          Filename fullpath = testarea + filename;
-         Filename symlink1 = fullpath + "." + std::to_string(major_no);
-         Filename symlink2 = symlink1 + "." + std::to_string(minor_no);
-         Filename symlink3 = symlink2 + "." + std::to_string(patch_no);
+         Filename symlink1 = fullpath + "." + major_no;
+         Filename symlink2 = symlink1 + "." + minor_no;
+         Filename symlink3 = symlink2 + "." + patch_no;
          Filename before = testarea + filename;
          Filename after = symlink3;
 
@@ -95,8 +95,7 @@ namespace reensure {
          file::NewFoundException::assertion(symlink1, __INFO__);
          file::NewFoundException::assertion(symlink2, __INFO__);
          file::NewFoundException::assertion(symlink3, __INFO__);
-         // i.parameters(argc, argv);
-         // i.execute();
+         i.execute(argc, argv);
          file::NotFoundException::assertion(before, __INFO__);
          file::NotFoundException::assertion(after, __INFO__);
          file::NotFoundException::assertion(symlink1, __INFO__);

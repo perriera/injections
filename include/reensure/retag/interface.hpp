@@ -67,7 +67,7 @@ namespace reensure {
           * @brief execute
           *
           */
-         virtual void execute() const pure;
+         virtual void execute(int argc, const char* argv[]) const pure;
 
          /**
           * @brief major, minor, patch
