@@ -41,16 +41,16 @@ using namespace reensure::retag;
 using namespace extras;
 using namespace fakeit;
 
-#define ignore0(a,b) a##Exception::assertion(b)
-#define ignore1(a,b,c) a##Exception::assertion(b, c)
-#define ignore2(a,b,c,d) a##Exception::assertion(b, c, d)
-#define ignore3(a,b,c,d,e) a##Exception::assertion(b, c, d, e)
-#define ignore4(a,b,c,d,e,f) a##Exception::assertion(b, c, d, e, f)
-#define ignore5(a,b,c,d,e,f,g) a##Exception::assertion(b, c, d, e, f, g)
-#define ignore6(a,b,c,d,e,f,g,h) a##Exception::assertion(b, c, d, e, f, g, h)
-#define ignore7(a,b,c,d,e,f,g,h,i) a##Exception::assertion(b, c, d, e, f, g, h, i)
-#define ignore8(a,b,c,d,e,f,g,h,i,j) a##Exception::assertion(b, c, d, e, f, g, h, i, j)
-#define ignore(a,b,c) ignore1(a,b,c)
+// #define ignore0(a,b) a##Exception::assertion(b)
+// #define ignore1(a,b,c) a##Exception::assertion(b, c)
+// #define ignore2(a,b,c,d) a##Exception::assertion(b, c, d)
+// #define ignore3(a,b,c,d,e) a##Exception::assertion(b, c, d, e)
+// #define ignore4(a,b,c,d,e,f) a##Exception::assertion(b, c, d, e, f)
+// #define ignore5(a,b,c,d,e,f,g) a##Exception::assertion(b, c, d, e, f, g)
+// #define ignore6(a,b,c,d,e,f,g,h) a##Exception::assertion(b, c, d, e, f, g, h)
+// #define ignore7(a,b,c,d,e,f,g,h,i) a##Exception::assertion(b, c, d, e, f, g, h, i)
+// #define ignore8(a,b,c,d,e,f,g,h,i,j) a##Exception::assertion(b, c, d, e, f, g, h, i, j)
+// #define ignore(a,b,c) ignore1(a,b,c)
 
 /**
  * @brief dock retag::Interface
@@ -98,12 +98,12 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
             ParameterList _list;
             for (int j = 0; j < argc; j++)
                _list.push_back(argv[j]);
-            ignore(IncorrectParameters, _list, __INFO__);
+            ignore1(IncorrectParameters, _list, __INFO__);
             _sharedlibraryname = _list[0];
             _major_minor_patch = _list[1];
-            ignore(file::NotFound, _sharedlibraryname, __INFO__);
+            ignore1(file::NotFound, _sharedlibraryname, __INFO__);
             auto parts = extras::str::split(_major_minor_patch, ".");
-            ignore(IncorrectNumbers, parts, __INFO__);
+            ignore1(IncorrectNumbers, parts, __INFO__);
             _major_no = parts[0];
             _minor_no = parts[1];
             _patch_no = parts[2];
