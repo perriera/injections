@@ -24,18 +24,18 @@
  */
 
 #include <iostream>
-#include <reensure/game/clazz.hpp>
+#include <reensure/retag/clazz.hpp>
 
-using namespace reensure::reassign;
+using namespace reensure::retag;
 
-int main(int, const char**)
+int main(int argc, const char* argv[])
 {
   try {
-    game::ChessGame game(1, 2);
-    game.moves();
+    Instance dock;
+    dock.execute(argc, argv);
     return 0;
   }
-  catch (const game::Exception& ex) {
+  catch (const Exception& ex) {
     std::cout << ex << std::endl;
   }
   catch (const std::exception& ex) {
