@@ -151,8 +151,7 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
     *
     */
 
-    // test_parameters(i);
-    // test_execute(i);
+    // test(i);
 
     /**
      * @brief verify the desired methods were tested

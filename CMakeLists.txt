@@ -47,6 +47,7 @@ FIND_PACKAGE (Threads)
 #
 # NOTE: Set our source and include directory variables for use through the build
 #
+
 set(SOURCES "${PROJECT_SOURCE_DIR}/src")
 set(INCLUDES "${PROJECT_SOURCE_DIR}/include")
 
@@ -179,6 +180,10 @@ endif()
 #
 # HACK: glob src files and header files
 #
+# CMakeLists.txt uses a GLOB_RECURSE macro which automatically includes ALL headers 
+# and sources under include/ and src/. So, to keep two or more main() declarations 
+# seperate, we place any sources that have a main() in the instances/ folder
+#
 file(GLOB_RECURSE REENSURE_HEADERS CONFIGURE_DEPENDS "${INCLUDES}/${PROJECT_NAME}/*.hpp")
 file(GLOB_RECURSE REENSURE_SOURCE CONFIGURE_DEPENDS "${SOURCES}/*.cpp")
 
@@ -246,18 +251,36 @@ endif()
 #
 if( NOT MAKE_REENSURE_LIBRARY_ONLY OR MAKE_REENSURE_LIBRARY_TOOLS)
 
-  if (MAKE32BIT)
-    add_executable(reensure_app_i386 instances/main.cpp) 
-    target_include_directories(reensure_app_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-    target_link_libraries(reensure_app_i386 PRIVATE ${PROJECT_NAME}_i386 ${REENSURE_LIBS_NEEDED_i386})
-    target_compile_options(reensure_app_i386 PUBLIC -m32)
-    target_link_options(reensure_app_i386 PRIVATE -m32)
-  endif()
+  # #
+  # # reensure_app
+  # #
+  # if (MAKE32BIT)
+  #   add_executable(reensure_app_i386 instances/reensure_app.cpp) 
+  #   target_include_directories(reensure_app_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+  #   target_link_libraries(reensure_app_i386 PRIVATE ${PROJECT_NAME}_i386 ${REENSURE_LIBS_NEEDED_i386})
+  #   target_compile_options(reensure_app_i386 PUBLIC -m32)
+  #   target_link_options(reensure_app_i386 PRIVATE -m32)
+  # endif()
+  # if (MAKE64BIT)
+  #   add_executable(reensure_app instances/reensure_app.cpp) 
+  #   target_include_directories(reensure_app PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+  #   target_link_libraries(reensure_app PRIVATE ${PROJECT_NAME} ${REENSURE_LIBS_NEEDED})
+  # endif()
 
+  #
+  # retag_app
+  #
+  if (MAKE32BIT)
+    add_executable(retag_i386 instances/retag.cpp) 
+    target_include_directories(retag_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+    target_link_libraries(retag_i386 PRIVATE ${PROJECT_NAME}_i386 ${REENSURE_LIBS_NEEDED_i386})
+    target_compile_options(retag_i386 PUBLIC -m32)
+    target_link_options(retag_i386 PRIVATE -m32)
+  endif()
   if (MAKE64BIT)
-    add_executable(reensure_app instances/main.cpp) 
-    target_include_directories(reensure_app PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-    target_link_libraries(reensure_app PRIVATE ${PROJECT_NAME} ${REENSURE_LIBS_NEEDED})
+    add_executable(retag instances/retag.cpp) 
+    target_include_directories(retag PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+    target_link_libraries(retag PRIVATE ${PROJECT_NAME} ${REENSURE_LIBS_NEEDED})
   endif()
 
 endif()

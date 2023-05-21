@@ -92,6 +92,7 @@ namespace reensure {
        *
        * @param i
        */
+      void test(Interface& i);
       void test_execute(Interface& i);
       void test_parameters(Interface& i);
 
