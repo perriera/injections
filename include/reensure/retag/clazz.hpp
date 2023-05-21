@@ -44,10 +44,11 @@ namespace reensure {
       concrete class Instance implements Interface
       {
 
-         Filename _fullpath;
-         Number _major_no;
-         Number _minor_no;
-         Number _patch_no;
+         mutable Filename _sharedlibraryname;
+         mutable Filename _major_minor_patch;
+         mutable Number _major_no;
+         mutable Number _minor_no;
+         mutable Number _patch_no;
 
       public:
 
@@ -57,18 +58,30 @@ namespace reensure {
           * @param argc
           * @param argv
           */
-         virtual void parameters(int, const char* [])
+         virtual void parameters(int argc, const char* argv[]) const override
          {
-            throw "not implemented yet";
+            ParameterList _list;
+            for (int j = 0; j < argc; j++)
+               _list.push_back(argv[j]);
+            ignore1(IncorrectParameters, _list, __INFO__);
+            _sharedlibraryname = _list[0];
+            _major_minor_patch = _list[1];
+            ignore1(extras::file::NotFound, _sharedlibraryname, __INFO__);
+            auto parts = extras::str::split(_major_minor_patch, ".");
+            ignore1(IncorrectNumbers, parts, __INFO__);
+            _major_no = parts[0];
+            _minor_no = parts[1];
+            _patch_no = parts[2];
          }
 
          /**
           * @brief execute
           *
           */
-         virtual void execute() const
+         virtual void execute(int argc, const char* argv[]) const override
          {
-            extras::file::File file(_fullpath);
+            this->parameters(argc, argv);
+            extras::file::File file(_sharedlibraryname);
             Pathname original = file.filename();
             Pathname symlink1 = original + "." + this->major_no();
             Pathname symlink2 = symlink1 + "." + this->minor_no();
@@ -99,27 +112,12 @@ namespace reensure {
           *
           * @return Number
           */
-         virtual Number major_no() const { return _major_no; };
+         virtual Number major_no() const override { return _major_no; };
 
-         virtual Number minor_no() const { return _minor_no; };
+         virtual Number minor_no() const override { return _minor_no; };
 
-         virtual Number patch_no() const { return _patch_no; };
+         virtual Number patch_no() const override { return _patch_no; };
 
-         /**
-          * @brief
-          *
-          * @return Filename
-          */
-         virtual Filename newTag() const
-         {
-            extras::file::File file(_fullpath);
-            auto filename = file.filename();
-            filename += "." + this->major_no();
-            filename += "." + this->minor_no();
-            filename += "." + this->patch_no();
-            filename = file.pathname() + filename;
-            return filename;
-         };
       };
 
    } // namespace retag

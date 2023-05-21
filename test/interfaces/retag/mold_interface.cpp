@@ -38,7 +38,6 @@
  //
 
 using namespace reensure::retag;
-using namespace extras;
 using namespace fakeit;
 
 // #define ignore0(a,b) a##Exception::assertion(b)
@@ -56,7 +55,7 @@ using namespace fakeit;
  * @brief dock retag::Interface
  *
  */
-SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
+SCENARIO("Mold retag::Interface", "[retag::Interface]")
 {
 
    /**
@@ -65,18 +64,18 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
     */
    Filename _sharedlibraryname;
    Filename _major_minor_patch;
+   Number _major_no;
+   Number _minor_no;
+   Number _patch_no;
 
    /**
     * @brief determine _fullpath
     *
     */
-   Number _major_no;
-   Number _minor_no;
-   Number _patch_no;
    Filename testarea = "build/testarea/";
    Filename filename = "libsisutil.so";
-   Filename _fullpath = testarea + filename;
-   Filename symlink1 = _fullpath + "." + _major_no;
+   Filename fullpath = testarea + filename;
+   Filename symlink1 = fullpath + "." + _major_no;
    Filename symlink2 = symlink1 + "." + _minor_no;
    Filename symlink3 = symlink2 + "." + _patch_no;
    Filename before = testarea + filename;
@@ -101,7 +100,7 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
             ignore1(IncorrectParameters, _list, __INFO__);
             _sharedlibraryname = _list[0];
             _major_minor_patch = _list[1];
-            ignore1(file::NotFound, _sharedlibraryname, __INFO__);
+            ignore1(extras::file::NotFound, _sharedlibraryname, __INFO__);
             auto parts = extras::str::split(_major_minor_patch, ".");
             ignore1(IncorrectNumbers, parts, __INFO__);
             _major_no = parts[0];
@@ -150,15 +149,6 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
       {
          return _patch_no;
       }
-      });
-   When(Method(mold, newTag)).AlwaysDo([&i, &_fullpath]() {
-      extras::file::File file(_fullpath);
-      auto filename = file.filename();
-      filename += "." + i.major_no();
-      filename += "." + i.minor_no();
-      filename += "." + i.patch_no();
-      filename = file.pathname() + filename;
-      return filename;
       });
 
    /**

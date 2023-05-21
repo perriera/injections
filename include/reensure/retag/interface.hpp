@@ -61,7 +61,7 @@ namespace reensure {
           * @param argc
           * @param argv
           */
-         virtual void parameters(int argc, const char* argv[]) pure;
+         virtual void parameters(int argc, const char* argv[]) const pure;
 
          /**
           * @brief execute
@@ -78,12 +78,6 @@ namespace reensure {
          virtual Number minor_no() const pure;
          virtual Number patch_no() const pure;
 
-         /**
-          * @brief
-          *
-          * @return Filename
-          */
-         virtual Filename newTag() const pure;
       };
 
       /**
@@ -93,8 +87,6 @@ namespace reensure {
        * @param i
        */
       void test(Interface& i);
-      void test_execute(Interface& i);
-      void test_parameters(Interface& i);
 
       /**
        * @brief retag::Exception
@@ -112,26 +104,6 @@ namespace reensure {
          {
          }
       };
-
-      // /**
-      //  * @brief FileNotFoundException
-      //  *
-      //  */
-      // concrete class NotFoundException extends Exception
-      // {
-      //  public:
-
-      //    NotFoundException(const std::string& msg,
-      //                      const extras::WhereAmI& whereAmI)
-      //      : Exception(msg, whereAmI)
-      //    {
-      //    }
-
-      //    virtual char const* what() const noexcept { return _msg.c_str(); }
-
-      //    static void assertion(const Filename& filename,
-      //                          const extras::WhereAmI& ref);
-      // };
 
       /**
        * @brief IncorrectParametersException

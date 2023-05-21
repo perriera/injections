@@ -15,7 +15,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/run-unittests-${workspaceRootFolderName}",
             "args": [
-                "[mold retag::Interface]"
+                "[retag::Interface]"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -38,7 +38,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/run-unittests-${workspaceRootFolderName}_i386",
             "args": [
-                "[mold retag::Interface]"
+                "[retag::Interface]"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

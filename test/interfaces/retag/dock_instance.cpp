@@ -39,20 +39,14 @@ using namespace extras;
  * @brief dock retag::Interface
  *
  */
-SCENARIO("Dock retag::Interface", "[dock retag::Interface]")
+SCENARIO("Dock retag::Interface", "[retag::Interface]")
 {
-    /**
-     * @brief determine fullpath
-     *
-     */
-    const char* argv[] = { "build/testarea/libsisutil.so", "9.24.0" };
-    int argc = 2;
 
     /**
      * @brief construct dock for interface
      *
      */
-     // Instance dock;
-     // test(dock);
+    Instance dock;
+    test(dock);
 
 }
