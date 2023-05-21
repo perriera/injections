@@ -41,7 +41,16 @@ using namespace reensure::retag;
 using namespace extras;
 using namespace fakeit;
 
-#define ignore(a,b,c) a##Exception::assertion(b, c)
+#define ignore0(a,b) a##Exception::assertion(b)
+#define ignore1(a,b,c) a##Exception::assertion(b, c)
+#define ignore2(a,b,c,d) a##Exception::assertion(b, c, d)
+#define ignore3(a,b,c,d,e) a##Exception::assertion(b, c, d, e)
+#define ignore4(a,b,c,d,e,f) a##Exception::assertion(b, c, d, e, f)
+#define ignore5(a,b,c,d,e,f,g) a##Exception::assertion(b, c, d, e, f, g)
+#define ignore6(a,b,c,d,e,f,g,h) a##Exception::assertion(b, c, d, e, f, g, h)
+#define ignore7(a,b,c,d,e,f,g,h,i) a##Exception::assertion(b, c, d, e, f, g, h, i)
+#define ignore8(a,b,c,d,e,f,g,h,i,j) a##Exception::assertion(b, c, d, e, f, g, h, i, j)
+#define ignore(a,b,c) ignore1(a,b,c)
 
 /**
  * @brief dock retag::Interface
