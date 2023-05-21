@@ -1,6 +1,6 @@
 /**
  * @file ChessGame.hpp
- * @author Perry Anderson, (perry@exparx.ca)
+ * @author Perry Anderson (perry@exparx.ca)
  * @brief Sample Header file
  * @version 0.1
  * @date 2021-11-30
@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef _REASSURE_CHESSGAME_INTERFACE_HPP
-#define _REASSURE_CHESSGAME_INTERFACE_HPP
+#ifndef _REENSURE_CHESSGAME_CLAZZ_HPP
+#define _REENSURE_CHESSGAME_CLAZZ_HPP
 
  /**
   * @brief The MIT License (MIT)
@@ -38,64 +38,42 @@
   */
 
 #include <iostream>
-#include <extras/interfaces.hpp>
+#include <reensure/game/interface.hpp>
 
-namespace reassure {
+namespace reensure {
     namespace reassign {
-        namespace game {
+        namespace game
+        {
 
             /**
-             * @brief game::Interface
+             * @brief ChessGame
              *
              */
-            interface Interface
+            concrete class ChessGame implements Interface
             {
+
+                int _x = 0, _y = 0;
+
+            public:
+
+                /**
+                 * construct ChessGame
+                 */
+                ChessGame(int x, int y);
 
                 /**
                  * @brief moves()
                  * @return all the chess moves of the given chess game
                  */
-                virtual void moves() const pure;
-                virtual bool exists() const pure;
-                virtual bool piece(int row, int col) const pure;
-                virtual bool zone(int row, int col) const pure;
+                virtual void moves() const override;
+                virtual bool exists() const override;
+                virtual bool piece(int row, int col) const override;
+                virtual bool zone(int row, int col) const override;
 
-            };
-
-            /**
-             * @brief Interface::Exception
-             *
-             */
-            abstract class Exception
-                extends extras::AbstractCustomException {
-            public:
-                Exception(
-                    const std::string& msg,
-                    const extras::WhereAmI& whereAmI)
-                    : AbstractCustomException(msg.c_str(),
-                        whereAmI._file.c_str(),
-                        whereAmI._func.c_str(), whereAmI._line) {}
-            };
-
-            /**
-             * @brief sample custom exception
-             *
-             */
-            concrete class EndOfGameReachedException
-                extends Exception {
-            public:
-                EndOfGameReachedException(
-                    const std::string& msg,
-                    const extras::WhereAmI& whereAmI)
-                    : Exception(msg.c_str(), whereAmI) {}
-                static void assertion(
-                    int sizePGN, int sizeFEN,
-                    const std::string& msg,
-                    const extras::WhereAmI& ref);
             };
 
         }
     } // end namespace 
 }
 
-#endif // _REASSURE_CHESSGAME_INTERFACE_HPP
+#endif // _REENSURE_CHESSGAME_CLAZZ_HPP

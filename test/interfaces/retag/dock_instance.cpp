@@ -26,7 +26,7 @@
 
 #include <extras/docking/DockIt.hpp>
 #include <extras/file/clazz.hpp>
-#include <reassure/retag/clazz.hpp>
+#include <reensure/retag/clazz.hpp>
 #include <extras/strings.hpp>
 #include <extras/version.hpp>
 #include <iostream>
@@ -36,7 +36,7 @@
  // https://github.com/eranpeer/FakeIt/wiki/Quickstart
  //
 
-using namespace reassure::retag;
+using namespace reensure::retag;
 using namespace extras;
 
 /**

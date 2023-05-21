@@ -24,14 +24,14 @@
  */
 
 #include <iostream>
-#include <reassure/game/interface.hpp>
+#include <reensure/game/interface.hpp>
 #include <extras/docking/DockIt.hpp>
 
 #include "../../vendor/catch.hpp"
 #include "../../vendor/fakeit.hpp"
 
-using namespace reassure;
-using namespace reassure::reassign;
+using namespace reensure;
+using namespace reensure::reassign;
 using namespace fakeit;
 
 /**

@@ -27,14 +27,14 @@
 
 #include <bits/stdc++.h>
 #include <extras/file/clazz.hpp>
-#include <reassure/retag/interface.hpp>
+#include <reensure/retag/interface.hpp>
 #include <iostream>
 #include <sstream>
 
 struct user_id;
 struct ldap;
 
-namespace reassure {
+namespace reensure {
    namespace retag {
 
       /**

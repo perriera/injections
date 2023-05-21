@@ -34,7 +34,7 @@
 struct user_id;
 struct ldap;
 
-namespace reassure {
+namespace reensure {
    namespace retag {
 
       /**

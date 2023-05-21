@@ -35,10 +35,10 @@ include(cmake/CPM.cmake)
 include(cmake/print.cmake)
 include(cmake/utils.cmake)
 include(cmake/Find32or64bit.cmake)
-reassure_get_version()
+reensure_get_version()
 project(
-  reassure
-  VERSION ${REASSURE_VERSION}
+  reensure
+  VERSION ${REENSURE_VERSION}
   LANGUAGES CXX
 )
 
@@ -82,19 +82,19 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic -fPIC")
 #
 # NOTE: add additional project options
 #
-option(REASSURE_PRODUCTION "Production build" OFF)
+option(REENSURE_PRODUCTION "Production build" OFF)
 
 #
-# MAKE_REASSURE_LIBRARY_ONLY
+# MAKE_REENSURE_LIBRARY_ONLY
 #
 # Quite often when you include a library from a github project, (via CPM)
 # all you are interested in are the shared library files. When you use this
 # flag you have to set it on any executables (see below) that you setup
 # and/or wish to make optional. Mind you, this option has not been fully
-# tested for use with REASSURE_PRODUCTION flag. So, there might be 
+# tested for use with REENSURE_PRODUCTION flag. So, there might be 
 # a hiccup in here that needs to be worked out, (reader beware).
 #
-# see also MAKE_REASSURE_LIBRARY_TOOLS
+# see also MAKE_REENSURE_LIBRARY_TOOLS
 #
 # This second flag will allow both the shared libraries and any executatbles
 # (but not the unit tests) to be compiled.
@@ -102,11 +102,11 @@ option(REASSURE_PRODUCTION "Production build" OFF)
 # Using these flags speeds up the CPM inclusions in other projects significantly.
 #
 
-message(STATUS "MAKE_REASSURE_LIBRARY_ONLY is ${MAKE_REASSURE_LIBRARY_ONLY}")
-if(MAKE_REASSURE_LIBRARY_ONLY)
+message(STATUS "MAKE_REENSURE_LIBRARY_ONLY is ${MAKE_REENSURE_LIBRARY_ONLY}")
+if(MAKE_REENSURE_LIBRARY_ONLY)
   option(BUILD_TESTS "Build tests" OFF)
   option(DEBUG "Debug Build" OFF)
-  set(REASSURE_TESTS OFF)
+  set(REENSURE_TESTS OFF)
   message(STATUS "BUILD_TESTS is ${BUILD_TESTS}")
   message(STATUS "DEBUG is ${DEBUG}")
 else()
@@ -116,17 +116,17 @@ else()
   message(STATUS "DEBUG is ${DEBUG}")
 
   #
-  # NOTE: Build defaults to production, cmake -DREASSURE_PRODUCTION=OFF will build debug with tests
+  # NOTE: Build defaults to production, cmake -DREENSURE_PRODUCTION=OFF will build debug with tests
   #
-  if(NOT REASSURE_PRODUCTION)
+  if(NOT REENSURE_PRODUCTION)
     print(STATUS "Building ${PROJECT_NAME}-${PROJECT_VERSION} [DEBUG]")
     set(CMAKE_BUILD_TYPE Debug)
-    set(REASSURE_TESTS ON)
+    set(REENSURE_TESTS ON)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g")
   else()
     print(STATUS "Building ${PROJECT_NAME}-${PROJECT_VERSION} [RELEASE]")
-    set(REASSURE_TESTS OFF)
+    set(REENSURE_TESTS OFF)
     set(CMAKE_BUILD_TYPE Release)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
@@ -144,7 +144,7 @@ print(STATUS "CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
 
 #
 # NOTE: "Include 3rd party libraries, Perry and I maintain an open-source extras C++ library, which
-# is used extensively in reassure, it comes bundled with spdlog, cpr, and nlohmann json. extras has
+# is used extensively in reensure, it comes bundled with spdlog, cpr, and nlohmann json. extras has
 # project options that allow us to control how other libraries it includes are built. for example we
 # can tell extras to build spdlog as a static library (for faster compile times) by settings
 # MAKE_SPDLOG_SHARED OFF" -- Matt Williams, October, 2021
@@ -179,8 +179,8 @@ endif()
 #
 # HACK: glob src files and header files
 #
-file(GLOB_RECURSE REASSURE_HEADERS CONFIGURE_DEPENDS "${INCLUDES}/${PROJECT_NAME}/*.hpp")
-file(GLOB_RECURSE REASSURE_SOURCE CONFIGURE_DEPENDS "${SOURCES}/*.cpp")
+file(GLOB_RECURSE REENSURE_HEADERS CONFIGURE_DEPENDS "${INCLUDES}/${PROJECT_NAME}/*.hpp")
+file(GLOB_RECURSE REENSURE_SOURCE CONFIGURE_DEPENDS "${SOURCES}/*.cpp")
 
 #
 # NOTE: declare libraries here all source should be placed into a single library, (whether they be
@@ -188,51 +188,51 @@ file(GLOB_RECURSE REASSURE_SOURCE CONFIGURE_DEPENDS "${SOURCES}/*.cpp")
 #
 
 # 
-# REASSURE_THIRD_PARTY_LIBRARIES
+# REENSURE_THIRD_PARTY_LIBRARIES
 #
 # list here any 3rd party libraries that you want that were
 # installed using sudo apt install ....
 #
-# set(REASSURE_THIRD_PARTY_LIBRARIES ldap gcrypt gnutls uuid microhttpd)
-set(REASSURE_LIBS_COMMON stdc++fs ${REASSURE_THIRD_PARTY_LIBRARIES} Threads::Threads)
+# set(REENSURE_THIRD_PARTY_LIBRARIES ldap gcrypt gnutls uuid microhttpd)
+set(REENSURE_LIBS_COMMON stdc++fs ${REENSURE_THIRD_PARTY_LIBRARIES} Threads::Threads)
 
 if (MAKE32BIT)
-set(REASSURE_LIBS_NEEDED_i386 extras_i386 ${REASSURE_LIBS_COMMON})
-add_library(${PROJECT_NAME}_i386 SHARED ${REASSURE_HEADERS} ${REASSURE_SOURCE})
+set(REENSURE_LIBS_NEEDED_i386 extras_i386 ${REENSURE_LIBS_COMMON})
+add_library(${PROJECT_NAME}_i386 SHARED ${REENSURE_HEADERS} ${REENSURE_SOURCE})
 target_include_directories(${PROJECT_NAME}_i386 PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" ${ORACLE_INCLUDE})
-target_link_libraries(${PROJECT_NAME}_i386 PRIVATE ${REASSURE_LIBS_NEEDED_i386})
+target_link_libraries(${PROJECT_NAME}_i386 PRIVATE ${REENSURE_LIBS_NEEDED_i386})
 target_compile_options(${PROJECT_NAME}_i386 PUBLIC -m32)
 target_link_options(${PROJECT_NAME}_i386 PRIVATE -m32)
 endif()
 
 if (MAKE64BIT)
-set(REASSURE_LIBS_NEEDED extras  ${REASSURE_LIBS_COMMON})
-add_library(${PROJECT_NAME} SHARED ${REASSURE_HEADERS} ${REASSURE_SOURCE})
+set(REENSURE_LIBS_NEEDED extras  ${REENSURE_LIBS_COMMON})
+add_library(${PROJECT_NAME} SHARED ${REENSURE_HEADERS} ${REENSURE_SOURCE})
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" ${ORACLE_INCLUDE})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${REASSURE_LIBS_NEEDED})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${REENSURE_LIBS_NEEDED})
 endif()
 
 #
 # NOTE: declare unit test cases here all source should have adequate test cases whether they be mock
 # or unit tests, (or both)
 #
-if (NOT MAKE_REASSURE_LIBRARY_ONLY)
-  if(REASSURE_TESTS)
+if (NOT MAKE_REENSURE_LIBRARY_ONLY)
+  if(REENSURE_TESTS)
     print(STATUS "Building tests")
-    file(GLOB_RECURSE REASSURE_TESTS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp")
+    file(GLOB_RECURSE REENSURE_TESTS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp")
     set(TEST_EXEC "run-unittests-${PROJECT_NAME}")
 
     if (MAKE32BIT)
-      add_executable(${TEST_EXEC}_i386 ${REASSURE_TESTS})
+      add_executable(${TEST_EXEC}_i386 ${REENSURE_TESTS})
       target_include_directories(${TEST_EXEC}_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-      target_link_libraries(${TEST_EXEC}_i386 ${PROJECT_NAME}_i386 ${REASSURE_LIBS_NEEDED_i386})
+      target_link_libraries(${TEST_EXEC}_i386 ${PROJECT_NAME}_i386 ${REENSURE_LIBS_NEEDED_i386})
       target_compile_options(${TEST_EXEC}_i386 PUBLIC -m32)
       target_link_options(${TEST_EXEC}_i386 PRIVATE -m32)
     endif()
     if (MAKE64BIT)
-      add_executable(${TEST_EXEC} ${REASSURE_TESTS})
+      add_executable(${TEST_EXEC} ${REENSURE_TESTS})
       target_include_directories(${TEST_EXEC} PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-      target_link_libraries(${TEST_EXEC} PRIVATE ${PROJECT_NAME} ${REASSURE_LIBS_NEEDED})
+      target_link_libraries(${TEST_EXEC} PRIVATE ${PROJECT_NAME} ${REENSURE_LIBS_NEEDED})
     endif()
 
   endif()
@@ -244,20 +244,20 @@ endif()
 # includes ALL headers and sources under include/ and src/. So, to keep two or more main() 
 # declarations seperate, we place any sources that have a main() in the instances/ folder
 #
-if( NOT MAKE_REASSURE_LIBRARY_ONLY OR MAKE_REASSURE_LIBRARY_TOOLS)
+if( NOT MAKE_REENSURE_LIBRARY_ONLY OR MAKE_REENSURE_LIBRARY_TOOLS)
 
   if (MAKE32BIT)
-    add_executable(reassure_app_i386 instances/main.cpp) 
-    target_include_directories(reassure_app_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-    target_link_libraries(reassure_app_i386 PRIVATE ${PROJECT_NAME}_i386 ${REASSURE_LIBS_NEEDED_i386})
-    target_compile_options(reassure_app_i386 PUBLIC -m32)
-    target_link_options(reassure_app_i386 PRIVATE -m32)
+    add_executable(reensure_app_i386 instances/main.cpp) 
+    target_include_directories(reensure_app_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+    target_link_libraries(reensure_app_i386 PRIVATE ${PROJECT_NAME}_i386 ${REENSURE_LIBS_NEEDED_i386})
+    target_compile_options(reensure_app_i386 PUBLIC -m32)
+    target_link_options(reensure_app_i386 PRIVATE -m32)
   endif()
 
   if (MAKE64BIT)
-    add_executable(reassure_app instances/main.cpp) 
-    target_include_directories(reassure_app PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-    target_link_libraries(reassure_app PRIVATE ${PROJECT_NAME} ${REASSURE_LIBS_NEEDED})
+    add_executable(reensure_app instances/main.cpp) 
+    target_include_directories(reensure_app PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
+    target_link_libraries(reensure_app PRIVATE ${PROJECT_NAME} ${REENSURE_LIBS_NEEDED})
   endif()
 
 endif()

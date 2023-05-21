@@ -23,13 +23,13 @@
  *
  */
 
-#include <reassure/game/interface.hpp>
+#include <reensure/game/interface.hpp>
 #include <extras/interfaces.hpp>
 #include <iostream>
 
 using namespace std;
-using namespace reassure;
-using namespace reassure::reassign;
+using namespace reensure;
+using namespace reensure::reassign;
 
 /**
  * @brief FileNotFoundException::assertion
