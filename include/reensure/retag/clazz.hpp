@@ -52,22 +52,6 @@ namespace reensure {
       public:
 
          /**
-          * @brief Construct a new Instance object
-          *
-          * @param fullpath
-          */
-         Instance(const Filename& fullpath,
-            const Number& major_no,
-            const Number& minor_no,
-            const Number& patch_no)
-            : _fullpath(fullpath)
-            , _major_no(major_no)
-            , _minor_no(minor_no)
-            , _patch_no(patch_no)
-         {
-         }
-
-         /**
           * @brief parameters
           *
           * @param argc

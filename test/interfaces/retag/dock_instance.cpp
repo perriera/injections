@@ -32,10 +32,6 @@
 #include <iostream>
 #include <sstream>
 
- //
- // https://github.com/eranpeer/FakeIt/wiki/Quickstart
- //
-
 using namespace reensure::retag;
 using namespace extras;
 
@@ -49,27 +45,14 @@ SCENARIO("Dock retag::Interface", "[dock retag::Interface]")
      * @brief determine fullpath
      *
      */
-    Number major_no = std::to_string(EXTRAS_VER_MAJOR);
-    Number minor_no = std::to_string(EXTRAS_VER_MINOR);
-    Number patch_no = std::to_string(EXTRAS_VER_PATCH);
-    Filename testarea = "build/testarea/";
-    Filename filename = "libsisutil.so";
-    Filename fullpath = testarea + filename;
-    Filename symlink1 = fullpath + "." + major_no;
-    Filename symlink2 = symlink1 + "." + minor_no;
-    Filename symlink3 = symlink2 + "." + patch_no;
-    Filename before = testarea + filename;
-    Filename after = symlink3;
+    const char* argv[] = { "build/testarea/libsisutil.so", "9.24.0" };
+    int argc = 2;
 
     /**
      * @brief construct dock for interface
      *
      */
-     //    retag::Instance dock(fullpath, major_no, minor_no, patch_no);
-     //    retag::Interface& i = dock;
-     //    retag::test_execute(i);
+     // Instance dock;
+     // test(dock);
 
-     /**
-      * @brief missing parameter test
-      */
 }
