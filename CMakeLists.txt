@@ -253,22 +253,6 @@ endif()
 #
 if( NOT MAKE_INJECTIONS_LIBRARY_ONLY OR MAKE_INJECTIONS_LIBRARY_TOOLS)
 
-  # #
-  # # injections_app
-  # #
-  # if (MAKE32BIT)
-  #   add_executable(injections_app_i386 instances/injections_app.cpp) 
-  #   target_include_directories(injections_app_i386 PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-  #   target_link_libraries(injections_app_i386 PRIVATE ${PROJECT_NAME}_i386 ${INJECTIONS_LIBS_NEEDED_i386})
-  #   target_compile_options(injections_app_i386 PUBLIC -m32)
-  #   target_link_options(injections_app_i386 PRIVATE -m32)
-  # endif()
-  # if (MAKE64BIT)
-  #   add_executable(injections_app instances/injections_app.cpp) 
-  #   target_include_directories(injections_app PUBLIC ${INCLUDES} ${ORACLE_INCLUDE})
-  #   target_link_libraries(injections_app PRIVATE ${PROJECT_NAME} ${INJECTIONS_LIBS_NEEDED})
-  # endif()
-
   #
   # retag_app
   #
