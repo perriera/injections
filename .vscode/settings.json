@@ -66,7 +66,16 @@
         "concepts": "cpp",
         "ranges": "cpp",
         "stop_token": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "cfenv": "cpp",
+        "cinttypes": "cpp",
+        "complex": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "list": "cpp",
+        "scoped_allocator": "cpp",
+        "typeindex": "cpp",
+        "cuchar": "cpp"
     },
     "editor.formatOnSave": true,
     "better-comments.highlightPlainText": true,

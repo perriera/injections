@@ -1,16 +1,17 @@
 /**
- * @file interfaces.hpp
+ * @file interface.hpp
  * @author Perry Anderson (perry@exparx.ca)
- * @brief interface keyword, (for use with Design by Interface)
+  * @ref https://github.com/perriera
+ * @brief (perriera) injections interface
  * @version 0.1
- * @date 2021-11-30
+ * @date 2023-05-22
  *
  * @copyright © 2023 Perry Anderson, (perry@exparx.ca)
  *
  */
 
-#ifndef _INJECTIONS_INTERFACES_HPP
-#define _INJECTIONS_INTERFACES_HPP
+#ifndef _INJECTIONS_INTERFACE_HPP
+#define _INJECTIONS_INTERFACE_HPP
 
  /**
   * @brief The MIT License (MIT)
@@ -90,4 +91,4 @@ namespace injections {
       assume b##Exception(c, d);                                               \
    }
 
-#endif // _INJECTIONS_INTERFACES_HPP
+#endif // _INJECTIONS_INTERFACE_HPP

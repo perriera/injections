@@ -35,7 +35,7 @@ int main(int argc, const char* argv[])
     dock.execute(argc, argv);
     return 0;
   }
-  catch (const Exception& ex) {
+  catch (const Injection& ex) {
     std::cout << ex << std::endl;
   }
   catch (const std::exception& ex) {

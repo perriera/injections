@@ -5,8 +5,8 @@
 > and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).</br>
 > To add a tag to the git repository do:
 >
-> > git tag -a v1.0.0 -m "refactored project name to injections"</br>
-> > git push origin v1.0.0
+> > git tag -a v1.0.4 -m "refactored injections/interface.hpp"</br>
+> > git push origin v1.0.4
 
 IMPORTANT:
 
@@ -31,6 +31,10 @@ Correct URL for github, (for source compare)</br>
 Adding dock test cases </br>
 Adding unit test cases </br>
 Updated README.md accordingly</br>
+
+#### 1.0.4 (2023-05-22)
+### Changed
+- refactored injections/interface.hpp
 
 #### 1.0.0 (2023-05-21)
 ### Changed
@@ -100,7 +104,8 @@ Updated README.md accordingly</br>
 
 ### Note
 > The following will only show on PUBLIC repositories:
-[unreleased]: https://github.com/perriera/injections/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/perriera/injections/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/perriera/injections/compare/v1.0.0...v1.0.4
 [1.0.0]: https://github.com/perriera/injections/compare/v0.2.1...v1.0.0
 [0.2.1]: https://github.com/perriera/injections/compare/v0.1.0...v0.2.1
 [0.1.0]: https://github.com/perriera/injections/compare/v0.0.0...v0.1.0

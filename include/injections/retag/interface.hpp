@@ -92,14 +92,14 @@ namespace injections {
       void test(Interface& i);
 
       /**
-       * @brief retag::Exception
+       * @brief retag::Injection
        *
        */
-      abstract class Exception extends extras::AbstractCustomException
+      abstract class Injection extends extras::AbstractCustomException
       {
       protected:
 
-         Exception(const std::string& msg, const extras::WhereAmI& whereAmI)
+         Injection(const std::string& msg, const extras::WhereAmI& whereAmI)
             : AbstractCustomException(msg.c_str(),
                whereAmI._file.c_str(),
                whereAmI._func.c_str(),
@@ -112,13 +112,13 @@ namespace injections {
        * @brief IncorrectParametersException
        *
        */
-      concrete class IncorrectParametersException extends Exception
+      concrete class IncorrectParametersException extends Injection
       {
       public:
 
          IncorrectParametersException(const std::string& msg,
             const extras::WhereAmI& whereAmI)
-            : Exception(msg, whereAmI)
+            : Injection(msg, whereAmI)
          {
          }
 
@@ -136,13 +136,13 @@ namespace injections {
        * @brief IncorrectNumbersException
        *
        */
-      concrete class IncorrectNumbersException extends Exception
+      concrete class IncorrectNumbersException extends Injection
       {
       public:
 
          IncorrectNumbersException(const std::string& msg,
             const extras::WhereAmI& whereAmI)
-            : Exception(msg, whereAmI)
+            : Injection(msg, whereAmI)
          {
          }
 
@@ -160,13 +160,13 @@ namespace injections {
        * @brief AlreadyTaggedException
        *
        */
-      concrete class AlreadyTaggedException extends Exception
+      concrete class AlreadyTaggedException extends Injection
       {
       public:
 
          AlreadyTaggedException(const std::string& msg,
             const extras::WhereAmI& whereAmI)
-            : Exception(msg, whereAmI)
+            : Injection(msg, whereAmI)
          {
          }
 
