@@ -95,7 +95,7 @@ SCENARIO("Mold retag::Interface", "[mold retag::Interface]")
             _major_no = parts[0];
             _minor_no = parts[1];
             _patch_no = parts[2];
-            inject(extras::file::NotFound, _sharedlibraryname, __INFO__);
+            inject2(AlreadyTagged, _sharedlibraryname, _major_minor_patch, __INFO__);
          });
    When(Method(mold, execute))
       .AlwaysDo([&i, &_sharedlibraryname, &_major_minor_patch](int argc, const char* argv[]) {

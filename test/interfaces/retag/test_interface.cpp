@@ -112,12 +112,12 @@ namespace reensure {
          file::NotFoundException::assertion(symlink1, __INFO__);
          file::NotFoundException::assertion(symlink2, __INFO__);
          file::NotFoundException::assertion(symlink3, __INFO__);
-         // REQUIRE_THROWS_AS(i.execute(argc, argv), AlreadyTaggedException);
-         // file::NotFoundException::assertion(before, __INFO__);
-         // file::NotFoundException::assertion(after, __INFO__);
-         // file::NotFoundException::assertion(symlink1, __INFO__);
-         // file::NotFoundException::assertion(symlink2, __INFO__);
-         // file::NotFoundException::assertion(symlink3, __INFO__);
+         REQUIRE_THROWS_AS(i.execute(argc, argv), AlreadyTaggedException);
+         file::NotFoundException::assertion(before, __INFO__);
+         file::NotFoundException::assertion(after, __INFO__);
+         file::NotFoundException::assertion(symlink1, __INFO__);
+         file::NotFoundException::assertion(symlink2, __INFO__);
+         file::NotFoundException::assertion(symlink3, __INFO__);
       }
 
    }

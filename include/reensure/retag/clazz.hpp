@@ -63,15 +63,16 @@ namespace reensure {
             ParameterList _list;
             for (int j = 0; j < argc; j++)
                _list.push_back(argv[j]);
-            ignore1(IncorrectParameters, _list, __INFO__);
+            inject(IncorrectParameters, _list, __INFO__);
             _sharedlibraryname = _list[0];
             _major_minor_patch = _list[1];
-            ignore1(extras::file::NotFound, _sharedlibraryname, __INFO__);
+            inject(extras::file::NotFound, _sharedlibraryname, __INFO__);
             auto parts = extras::str::split(_major_minor_patch, ".");
-            ignore1(IncorrectNumbers, parts, __INFO__);
+            inject(IncorrectNumbers, parts, __INFO__);
             _major_no = parts[0];
             _minor_no = parts[1];
             _patch_no = parts[2];
+            inject2(AlreadyTagged, _sharedlibraryname, _major_minor_patch, __INFO__);
          }
 
          /**

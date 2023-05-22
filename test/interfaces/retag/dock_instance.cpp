@@ -39,7 +39,7 @@ using namespace extras;
  * @brief dock retag::Interface
  *
  */
-SCENARIO("Dock retag::Interface", "[retag::Interface]")
+SCENARIO("Dock retag::Interface", "[dock retag::Interface]")
 {
 
     /**

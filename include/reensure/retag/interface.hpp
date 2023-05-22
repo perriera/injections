@@ -43,6 +43,9 @@ namespace reensure {
        */
       using Pathname = std::string;
       using Filename = std::string;
+      using SharedLibraryName = std::string;
+      using MajorMinorPatch = std::string;
+
       using Number = std::string;
       using Cmd = std::string;
       using Param = std::string;
@@ -169,11 +172,22 @@ namespace reensure {
 
          virtual char const* what() const noexcept { return _msg.c_str(); }
 
-         static void assertion(const std::vector<std::string> parts,
+         static void assertion(
+            const SharedLibraryName& name,
+            const MajorMinorPatch& mmp,
             const extras::WhereAmI& ref)
          {
-            _assume(parts.size() != 3)
-               _ensure AlreadyTaggedException("syntax: ##.##.##", ref);
+            ensure(!name.empty())
+               assume AlreadyTaggedException("SharedLibraryName not specified", ref);
+            ensure(!mmp.empty())
+               assume AlreadyTaggedException("MajorMinorPatch not specified", ref);
+            Filename new_name = name + "." + mmp;
+            try {
+               inject(extras::file::Found, new_name, __INFO__);
+            }
+            catch (const extras::file::FoundException& ex) {
+               assume AlreadyTaggedException(new_name, ref);
+            }
          }
       };
 
