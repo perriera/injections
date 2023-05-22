@@ -127,8 +127,9 @@ namespace injections {
          static void assertion(const ParameterList& list,
             const extras::WhereAmI& ref)
          {
-            _assume(list.size() != 2) _ensure IncorrectParametersException(
-               "syntax: filename version", ref);
+            ensure(list.size() == 2)
+               assume IncorrectParametersException(
+                  "syntax: filename version", ref);
          }
       };
 
@@ -151,8 +152,9 @@ namespace injections {
          static void assertion(const std::vector<std::string> parts,
             const extras::WhereAmI& ref)
          {
-            _assume(parts.size() != 3)
-               _ensure IncorrectNumbersException("syntax: ##.##.##", ref);
+            ensure(parts.size() == 3)
+               assume IncorrectNumbersException(
+                  "syntax: ##.##.##", ref);
          }
       };
 
@@ -178,9 +180,11 @@ namespace injections {
             const extras::WhereAmI& ref)
          {
             ensure(!name.empty())
-               assume AlreadyTaggedException("SharedLibraryName not specified", ref);
+               assume AlreadyTaggedException(
+                  "SharedLibraryName not specified", ref);
             ensure(!mmp.empty())
-               assume AlreadyTaggedException("MajorMinorPatch not specified", ref);
+               assume AlreadyTaggedException(
+                  "MajorMinorPatch not specified", ref);
             Filename new_name = name + "." + mmp;
             mask(extras::file::Found, AlreadyTagged, new_name, ref);
          }
