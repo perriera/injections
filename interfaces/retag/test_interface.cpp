@@ -22,8 +22,8 @@
  *
  */
 
-#include "../../vendor/catch.hpp"
-#include "../../vendor/fakeit.hpp"
+#include "../../test/vendor/catch.hpp"
+#include "../../test/vendor/fakeit.hpp"
 
 #include <extras/docking/DockIt.hpp>
 #include <extras/file/clazz.hpp>

@@ -223,8 +223,8 @@ endif()
 #
 if (NOT MAKE_INJECTIONS_LIBRARY_ONLY)
   if(INJECTIONS_TESTS)
-    print(STATUS "Building tests")
-    file(GLOB_RECURSE INJECTIONS_TESTS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp")
+    print(STATUS "Building interfaces")
+    file(GLOB_RECURSE INJECTIONS_TESTS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/interfaces/*.cpp")
     set(TEST_EXEC "run-unittests-${PROJECT_NAME}")
 
     if (MAKE32BIT)

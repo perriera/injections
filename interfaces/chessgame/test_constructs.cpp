@@ -23,6 +23,26 @@
  *
  */
 
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <iostream>
+#include <injections/game/clazz.hpp>
 
+#include "../../test/vendor/catch.hpp"
+
+using namespace std;
+using namespace injections;
+using namespace injections::reassign;
+
+SCENARIO("Dock reassign::game::Interface constructs", "[reassign::game::Interface]")
+{
+    /**
+     *
+     *    test various constructors
+     *    with various parameters
+     *
+     */
+    reassign::game::ChessGame game(1, 2);
+
+    REQUIRE_THROWS_AS(
+        reassign::game::ChessGame(0, 0), game::EndOfGameReachedException);
+
+}

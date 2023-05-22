@@ -1,7 +1,6 @@
 /**
  * @brief The MIT License (MIT)
  * @copyright © 2023 Perry Anderson, (perry@exparx.ca)
- * @ref https://github.com/perriera
  *
  * Permission  is  hereby  granted, free  of  charge, to  any person  obtaining
  * a copy of this software and associated documentation files (the “Software”),
@@ -23,22 +22,31 @@
  *
  */
 
+#include "../../test/vendor/catch.hpp"
+
+#include <extras/docking/DockIt.hpp>
+#include <extras/file/clazz.hpp>
+#include <injections/retag/clazz.hpp>
+#include <extras/strings.hpp>
+#include <extras/version.hpp>
 #include <iostream>
-#include <injections/game/interface.hpp>
+#include <sstream>
 
-#include "../../vendor/catch.hpp"
+using namespace injections::retag;
+using namespace extras;
 
-using namespace std;
-using namespace injections;
-using namespace injections::reassign;
-
-SCENARIO("Dock reassign::game::Interface assertions", "[reassign::game::Interface]") {
+/**
+ * @brief dock retag::Interface
+ *
+ */
+SCENARIO("Dock retag::Interface", "[dock retag::Interface]")
+{
 
     /**
-     *    test all the assertions
+     * @brief construct dock for interface
+     *
      */
-    REQUIRE_THROWS_AS(
-        game::EndOfGameReachedException::assertion(
-            0, 0, "sample", __INFO__), game::EndOfGameReachedException);
+    Instance dock;
+    test(dock);
 
 }

@@ -24,33 +24,21 @@
  */
 
 #include <iostream>
-#include <injections/game/clazz.hpp>
+#include <injections/game/interface.hpp>
 
-#include "../../vendor/catch.hpp"
+#include "../../test/vendor/catch.hpp"
 
 using namespace std;
+using namespace injections;
 using namespace injections::reassign;
 
-SCENARIO("Dock reassign::game::Interface methods", "[reassign::game::Interface]")
-{
-    /**
-     *    construct an object
-     */
-
-    game::ChessGame game(1, 2);
-    game::Interface& i = game;
+SCENARIO("Dock reassign::game::Interface assertions", "[reassign::game::Interface]") {
 
     /**
-     *    repeat same tests from mold
+     *    test all the assertions
      */
-
-    i.moves();
-    REQUIRE(i.exists() == true);
-    REQUIRE(i.piece(1, 2) == true);
     REQUIRE_THROWS_AS(
-        i.zone(0, 0), game::EndOfGameReachedException);
-    REQUIRE(i.zone(1, 0) == false);
-    REQUIRE(i.zone(0, 1) == false);
+        game::EndOfGameReachedException::assertion(
+            0, 0, "sample", __INFO__), game::EndOfGameReachedException);
 
 }
-

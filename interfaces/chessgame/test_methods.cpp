@@ -26,23 +26,31 @@
 #include <iostream>
 #include <injections/game/clazz.hpp>
 
-#include "../../vendor/catch.hpp"
+#include "../../test/vendor/catch.hpp"
 
 using namespace std;
-using namespace injections;
 using namespace injections::reassign;
 
-SCENARIO("Dock reassign::game::Interface constructs", "[reassign::game::Interface]")
+SCENARIO("Dock reassign::game::Interface methods", "[reassign::game::Interface]")
 {
     /**
-     *
-     *    test various constructors
-     *    with various parameters
-     *
+     *    construct an object
      */
-    reassign::game::ChessGame game(1, 2);
 
+    game::ChessGame game(1, 2);
+    game::Interface& i = game;
+
+    /**
+     *    repeat same tests from mold
+     */
+
+    i.moves();
+    REQUIRE(i.exists() == true);
+    REQUIRE(i.piece(1, 2) == true);
     REQUIRE_THROWS_AS(
-        reassign::game::ChessGame(0, 0), game::EndOfGameReachedException);
+        i.zone(0, 0), game::EndOfGameReachedException);
+    REQUIRE(i.zone(1, 0) == false);
+    REQUIRE(i.zone(0, 1) == false);
 
 }
+
