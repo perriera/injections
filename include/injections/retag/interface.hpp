@@ -170,6 +170,9 @@ namespace injections {
          {
          }
 
+#define mask(a,b,c,d) try { inject(a, c, d);} catch (const a##Exception& ex) {assume b##Exception(c, d);}
+
+
          virtual char const* what() const noexcept { return _msg.c_str(); }
 
          static void assertion(
@@ -182,12 +185,13 @@ namespace injections {
             ensure(!mmp.empty())
                assume AlreadyTaggedException("MajorMinorPatch not specified", ref);
             Filename new_name = name + "." + mmp;
-            try {
-               inject(extras::file::Found, new_name, __INFO__);
-            }
-            catch (const extras::file::FoundException& ex) {
-               assume AlreadyTaggedException(new_name, ref);
-            }
+            mask(extras::file::Found, AlreadyTagged, new_name, ref);
+            // try {
+            //    inject(extras::file::Found, new_name, __INFO__);
+            // }
+            // catch (const extras::file::FoundException& ex) {
+            //    assume AlreadyTaggedException(new_name, ref);
+            // }
          }
       };
 

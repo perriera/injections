@@ -70,5 +70,6 @@
     },
     "editor.formatOnSave": true,
     "better-comments.highlightPlainText": true,
-    "C_Cpp.formatting": "vcFormat"
+    "C_Cpp.formatting": "vcFormat",
+    "editor.hover.enabled": false,
 }
