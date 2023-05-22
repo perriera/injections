@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef _REENSURE_CHESSGAME_INTERFACE_HPP
-#define _REENSURE_CHESSGAME_INTERFACE_HPP
+#ifndef _INJECTIONS_CHESSGAME_INTERFACE_HPP
+#define _INJECTIONS_CHESSGAME_INTERFACE_HPP
 
  /**
   * @brief The MIT License (MIT)
@@ -40,7 +40,7 @@
 #include <iostream>
 #include <extras/interfaces.hpp>
 
-namespace reensure {
+namespace injections {
     namespace reassign {
         namespace game {
 
@@ -98,4 +98,4 @@ namespace reensure {
     } // end namespace 
 }
 
-#endif // _REENSURE_CHESSGAME_INTERFACE_HPP
+#endif // _INJECTIONS_CHESSGAME_INTERFACE_HPP

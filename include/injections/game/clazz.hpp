@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef _REENSURE_CHESSGAME_CLAZZ_HPP
-#define _REENSURE_CHESSGAME_CLAZZ_HPP
+#ifndef _INJECTIONS_CHESSGAME_CLAZZ_HPP
+#define _INJECTIONS_CHESSGAME_CLAZZ_HPP
 
  /**
   * @brief The MIT License (MIT)
@@ -38,9 +38,9 @@
   */
 
 #include <iostream>
-#include <reensure/game/interface.hpp>
+#include <injections/game/interface.hpp>
 
-namespace reensure {
+namespace injections {
     namespace reassign {
         namespace game
         {
@@ -76,4 +76,4 @@ namespace reensure {
     } // end namespace 
 }
 
-#endif // _REENSURE_CHESSGAME_CLAZZ_HPP
+#endif // _INJECTIONS_CHESSGAME_CLAZZ_HPP

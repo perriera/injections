@@ -24,9 +24,9 @@
  */
 
 #include <iostream>
-#include <reensure/retag/clazz.hpp>
+#include <injections/retag/clazz.hpp>
 
-using namespace reensure::retag;
+using namespace injections::retag;
 
 int main(int argc, const char* argv[])
 {

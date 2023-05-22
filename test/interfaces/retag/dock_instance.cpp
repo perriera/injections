@@ -26,13 +26,13 @@
 
 #include <extras/docking/DockIt.hpp>
 #include <extras/file/clazz.hpp>
-#include <reensure/retag/clazz.hpp>
+#include <injections/retag/clazz.hpp>
 #include <extras/strings.hpp>
 #include <extras/version.hpp>
 #include <iostream>
 #include <sstream>
 
-using namespace reensure::retag;
+using namespace injections::retag;
 using namespace extras;
 
 /**

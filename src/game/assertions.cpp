@@ -23,13 +23,13 @@
  *
  */
 
-#include <reensure/game/interface.hpp>
+#include <injections/game/interface.hpp>
 #include <extras/interfaces.hpp>
 #include <iostream>
 
 using namespace std;
-using namespace reensure;
-using namespace reensure::reassign;
+using namespace injections;
+using namespace injections::reassign;
 
 /**
  * @brief FileNotFoundException::assertion

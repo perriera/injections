@@ -34,7 +34,7 @@
 struct user_id;
 struct ldap;
 
-namespace reensure {
+namespace injections {
    namespace retag {
 
       /**
@@ -95,7 +95,7 @@ namespace reensure {
        * @brief retag::Exception
        *
        */
-      concrete class Exception extends extras::AbstractCustomException
+      abstract class Exception extends extras::AbstractCustomException
       {
       protected:
 

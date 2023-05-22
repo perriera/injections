@@ -27,14 +27,14 @@
 
 #include <bits/stdc++.h>
 #include <extras/file/clazz.hpp>
-#include <reensure/retag/interface.hpp>
+#include <injections/retag/interface.hpp>
 #include <iostream>
 #include <sstream>
 
 struct user_id;
 struct ldap;
 
-namespace reensure {
+namespace injections {
    namespace retag {
 
       /**

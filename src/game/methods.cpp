@@ -23,14 +23,14 @@
  *
  */
 
-#include <reensure/game/clazz.hpp>
+#include <injections/game/clazz.hpp>
 #include <extras/interfaces.hpp>
 #include <iostream>
 
 using namespace std;
-using namespace reensure;
+using namespace injections;
 
-namespace reensure {
+namespace injections {
   namespace reassign {
     namespace game {
 

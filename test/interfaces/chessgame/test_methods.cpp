@@ -24,12 +24,12 @@
  */
 
 #include <iostream>
-#include <reensure/game/clazz.hpp>
+#include <injections/game/clazz.hpp>
 
 #include "../../vendor/catch.hpp"
 
 using namespace std;
-using namespace reensure::reassign;
+using namespace injections::reassign;
 
 SCENARIO("Dock reassign::game::Interface methods", "[reassign::game::Interface]")
 {

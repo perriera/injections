@@ -24,14 +24,14 @@
  */
 
 #include <iostream>
-#include <reensure/game/interface.hpp>
+#include <injections/game/interface.hpp>
 #include <extras/docking/DockIt.hpp>
 
 #include "../../vendor/catch.hpp"
 #include "../../vendor/fakeit.hpp"
 
-using namespace reensure;
-using namespace reensure::reassign;
+using namespace injections;
+using namespace injections::reassign;
 using namespace fakeit;
 
 /**

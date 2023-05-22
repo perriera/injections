@@ -24,13 +24,13 @@
  */
 
 #include <iostream>
-#include <reensure/game/interface.hpp>
+#include <injections/game/interface.hpp>
 
 #include "../../vendor/catch.hpp"
 
 using namespace std;
-using namespace reensure;
-using namespace reensure::reassign;
+using namespace injections;
+using namespace injections::reassign;
 
 SCENARIO("Dock reassign::game::Interface assertions", "[reassign::game::Interface]") {
 
