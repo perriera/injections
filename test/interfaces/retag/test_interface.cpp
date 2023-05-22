@@ -87,20 +87,37 @@ namespace reensure {
 
          /**
           * @brief test the interface
-          *
+          * @note retag libsisutil.so (that has NOT been retagged)
           */
 
          file::NotFoundException::assertion(before, __INFO__);
-         file::NewFoundException::assertion(after, __INFO__);
-         file::NewFoundException::assertion(symlink1, __INFO__);
-         file::NewFoundException::assertion(symlink2, __INFO__);
-         file::NewFoundException::assertion(symlink3, __INFO__);
+         file::FoundException::assertion(after, __INFO__);
+         file::FoundException::assertion(symlink1, __INFO__);
+         file::FoundException::assertion(symlink2, __INFO__);
+         file::FoundException::assertion(symlink3, __INFO__);
          i.execute(argc, argv);
          file::NotFoundException::assertion(before, __INFO__);
          file::NotFoundException::assertion(after, __INFO__);
          file::NotFoundException::assertion(symlink1, __INFO__);
          file::NotFoundException::assertion(symlink2, __INFO__);
          file::NotFoundException::assertion(symlink3, __INFO__);
+
+         /**
+          * @brief test the interface
+          * @note retag libsisutil.so (that HAS been retagged)
+          */
+
+         file::NotFoundException::assertion(before, __INFO__);
+         file::NotFoundException::assertion(after, __INFO__);
+         file::NotFoundException::assertion(symlink1, __INFO__);
+         file::NotFoundException::assertion(symlink2, __INFO__);
+         file::NotFoundException::assertion(symlink3, __INFO__);
+         // REQUIRE_THROWS_AS(i.execute(argc, argv), AlreadyTaggedException);
+         // file::NotFoundException::assertion(before, __INFO__);
+         // file::NotFoundException::assertion(after, __INFO__);
+         // file::NotFoundException::assertion(symlink1, __INFO__);
+         // file::NotFoundException::assertion(symlink2, __INFO__);
+         // file::NotFoundException::assertion(symlink3, __INFO__);
       }
 
    }

@@ -153,6 +153,30 @@ namespace reensure {
          }
       };
 
+      /**
+       * @brief AlreadyTaggedException
+       *
+       */
+      concrete class AlreadyTaggedException extends Exception
+      {
+      public:
+
+         AlreadyTaggedException(const std::string& msg,
+            const extras::WhereAmI& whereAmI)
+            : Exception(msg, whereAmI)
+         {
+         }
+
+         virtual char const* what() const noexcept { return _msg.c_str(); }
+
+         static void assertion(const std::vector<std::string> parts,
+            const extras::WhereAmI& ref)
+         {
+            _assume(parts.size() != 3)
+               _ensure AlreadyTaggedException("syntax: ##.##.##", ref);
+         }
+      };
+
    } // namespace retag
 } // namespace extras
 
