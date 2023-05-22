@@ -23,11 +23,11 @@
  *
  */
 
-#ifndef _EXTRAS_RETAG_INTERFACE_HPP
-#define _EXTRAS_RETAG_INTERFACE_HPP
+#ifndef _INJECTIONS_RETAG_INTERFACE_HPP
+#define _INJECTIONS_RETAG_INTERFACE_HPP
 
 #include <algorithm>
-#include <extras/interfaces.hpp>
+#include <injections/interface.hpp>
 #include <iostream>
 #include <list>
 
@@ -189,4 +189,4 @@ namespace injections {
    } // namespace retag
 } // namespace extras
 
-#endif // _EXTRAS_RETAG_INTERFACE_HPP
+#endif // _INJECTIONS_RETAG_INTERFACE_HPP

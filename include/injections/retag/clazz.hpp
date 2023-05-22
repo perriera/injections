@@ -22,8 +22,8 @@
  *
  */
 
-#ifndef _EXTRAS_RETAG_CLAZZ_HPP
-#define _EXTRAS_RETAG_CLAZZ_HPP
+#ifndef _INJECTIONS_RETAG_CLAZZ_HPP
+#define _INJECTIONS_RETAG_CLAZZ_HPP
 
 #include <bits/stdc++.h>
 #include <extras/file/clazz.hpp>
@@ -124,4 +124,4 @@ namespace injections {
    } // namespace retag
 } // namespace extras
 
-#endif // _EXTRAS_RETAG_CLAZZ_HPP
+#endif // _INJECTIONS_RETAG_CLAZZ_HPP
