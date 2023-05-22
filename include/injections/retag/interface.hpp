@@ -31,9 +31,6 @@
 #include <iostream>
 #include <list>
 
-struct user_id;
-struct ldap;
-
 namespace injections {
    namespace retag {
 
