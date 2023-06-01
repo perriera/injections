@@ -5,8 +5,8 @@
 > and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).</br>
 > To add a tag to the git repository do:
 >
-> > git tag -a v1.1.0 -m "using extras v8.27.0"</br>
-> > git push origin v1.1.0
+> > git tag -a v1.1.3 -m "using extras v8.27.1"</br>
+> > git push origin v1.1.3
 
 IMPORTANT:
 
@@ -31,6 +31,10 @@ Correct URL for github, (for source compare)</br>
 Adding dock test cases </br>
 Adding unit test cases </br>
 Updated README.md accordingly</br>
+
+#### 1.1.3 (2023-06-01)
+### Changed
+- using extras v8.27.1
 
 #### 1.1.0 (2023-05-31)
 ### Changed
@@ -120,7 +124,8 @@ Updated README.md accordingly</br>
 
 ### Note
 > The following will only show on PUBLIC repositories:
-[unreleased]: https://github.com/perriera/injections/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/perriera/injections/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/perriera/injections/compare/v1.0.9...v1.1.3
 [1.1.0]: https://github.com/perriera/injections/compare/v1.0.9...v1.1.0
 [1.0.9]: https://github.com/perriera/injections/compare/v1.0.7...v1.0.9
 [1.0.7]: https://github.com/perriera/injections/compare/v1.0.6...v1.0.7
