@@ -5,8 +5,8 @@
 > and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).</br>
 > To add a tag to the git repository do:
 >
-> > git tag -a v1.1.7 -m "removed docs"</br>
-> > git push origin v1.1.7
+> > git tag -a v1.1.8 -m "added back dual 32/64 support"</br>
+> > git push origin v1.1.8
 
 IMPORTANT:
 
@@ -31,6 +31,10 @@ Correct URL for github, (for source compare)</br>
 Adding dock test cases </br>
 Adding unit test cases </br>
 Updated README.md accordingly</br>
+
+#### 1.1.8 (2023-06-09)
+### Changed
+- removed docs
 
 #### 1.1.7 (2023-06-09)
 ### Changed
